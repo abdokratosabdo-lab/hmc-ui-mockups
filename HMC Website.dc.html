@@ -16,19 +16,79 @@ a:hover{color:#17284f;text-decoration:underline}
 input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
 ::placeholder{color:#9aa7bd}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ---------- responsive ---------- */
+html,body{max-width:100%;overflow-x:clip}
+/* NB: no blanket img{max-width:100%} — the header mark is a deliberate 176px
+   crop inside a 48px window and must not be scaled down. */
+.hmc-footer-logo{max-width:100%}
+.hmc-burger,.hmc-mobile-menu{display:none}
+
+@media (max-width:1024px){
+  .hmc-grid-3{grid-template-columns:repeat(2,1fr)!important}
+  .hmc-hero,.hmc-split,.hmc-portal{grid-template-columns:1fr!important}
+  .hmc-hero,.hmc-split{gap:32px!important}
+  .hmc-portal{min-height:0!important}
+  .hmc-doctors-layout{grid-template-columns:236px 1fr!important;gap:20px!important}
+  .hmc-footer-grid{grid-template-columns:1fr 1fr!important;gap:30px!important}
+  .hmc-example-body{padding:26px!important}
+}
+
+@media (max-width:860px){
+  .hmc-nav,.hmc-header-cta{display:none!important}
+  .hmc-burger{display:inline-flex!important}
+  .hmc-mobile-menu{display:flex}
+  .hmc-header-inner{padding:11px 18px!important;gap:12px!important}
+  .hmc-topbar-inner{padding:8px 18px!important;gap:8px 14px!important}
+  .hmc-topbar-hours,.hmc-topbar-sep{display:none!important}
+  .hmc-sec{padding-left:18px!important;padding-right:18px!important}
+  .hmc-doctors-layout{grid-template-columns:1fr!important}
+  .hmc-filters{position:static!important;top:auto!important}
+  .hmc-doc-card{grid-template-columns:76px 1fr!important;gap:16px!important;align-items:start!important}
+  .hmc-doc-photo{width:76px!important;height:88px!important}
+  .hmc-doc-actions{grid-column:1/-1!important;flex-direction:row!important;flex-wrap:wrap!important;
+    align-items:center!important;gap:10px!important;border-top:1px solid #eef2f8;padding-top:14px}
+  .hmc-doc-actions>button{flex:1 1 140px!important}
+  .hmc-portal-left{padding:40px 18px!important}
+  .hmc-portal-side{padding:36px 18px!important}
+  .hmc-media{height:220px!important;min-height:220px!important}
+}
+
+@media (max-width:600px){
+  .hmc-grid-3,.hmc-2{grid-template-columns:1fr!important}
+  .hmc-footer-grid{grid-template-columns:1fr!important;gap:26px!important}
+  .hmc-topbar-addr{display:none!important}
+  .hmc-sec{padding-left:16px!important;padding-right:16px!important}
+  .hmc-sec:not(.hmc-footpad){padding-top:40px!important;padding-bottom:40px!important}
+  .hmc-h1{font-size:30px!important;line-height:1.16!important}
+  .hmc-hero-h1{font-size:32px!important;margin:16px 0 14px!important}
+  .hmc-h2{font-size:23px!important}
+  .hmc-hero-cta{flex-direction:column!important}
+  .hmc-sec-head{flex-direction:column!important;align-items:flex-start!important;gap:10px!important}
+  .hmc-team-card{flex-direction:column!important;gap:16px!important}
+  .hmc-portrait{width:100%!important;height:150px!important}
+  .hmc-steps{flex-wrap:wrap!important}
+  .hmc-steps>div{flex:1 1 100%!important}
+  .hmc-card,.hmc-example-body{padding:20px!important}
+  .hmc-doc-card{grid-template-columns:1fr!important}
+  .hmc-doc-photo{width:100%!important;height:140px!important}
+  .hmc-media{height:180px!important;min-height:180px!important}
+  .hmc-footer-logo{width:190px!important}
+  input,select,textarea{font-size:16px!important}
+}
 </style></helmet>
 <div style="font-family:'Manrope',system-ui,sans-serif;color:#1b2333;background:#f7f9fc;min-height:100vh">
 
   <div style="background:#17284f;color:#cfdcf2;font-size:12.5px;letter-spacing:.01em">
-    <div style="max-width:1240px;margin:0 auto;padding:9px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <div class="hmc-topbar-inner" style="max-width:1240px;margin:0 auto;padding:9px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
       <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">
-        <span style="display:flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:#5fd39a;display:inline-block"></span>Green Zone A, Building 71, Ground Floor — Naccache, Lebanon</span>
-        <span style="color:#8fa6cd">·</span>
+        <span class="hmc-topbar-addr" style="display:flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:#5fd39a;display:inline-block"></span>Green Zone A, Building 71, Ground Floor — Naccache, Lebanon</span>
+        <span class="hmc-topbar-sep" style="color:#8fa6cd">·</span>
         <a href="tel:+9614520065" style="color:#fff;font-weight:600;text-decoration:none">+961 4 520 065</a>
         <a href="https://wa.me/9614520065" style="color:#7fe0ae;text-decoration:none">WhatsApp the secretary</a>
       </div>
       <div style="display:flex;align-items:center;gap:14px">
-        <span style="opacity:.75">Mon–Fri 09:00–18:00 · Sat 09:00–14:00</span>
+        <span class="hmc-topbar-hours" style="opacity:.75">Mon–Fri 09:00–18:00 · Sat 09:00–14:00</span>
         <span style="display:flex;gap:6px">
           <span style="padding:2px 8px;border-radius:20px;background:rgba(255,255,255,.14);color:#fff;font-weight:600">EN</span>
           <span style="padding:2px 8px;border-radius:20px;opacity:.7">FR</span>
@@ -39,7 +99,7 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
   </div>
 
   <header style="position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e3e9f2">
-    <div style="max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px">
+    <div class="hmc-header-inner" style="max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px">
       <div onClick="{{ goHome }}" style="cursor:pointer;display:flex;align-items:center;gap:13px;flex:none">
         <div style="width:48px;height:48px;flex:none;border-radius:13px;background:#fff;border:1px solid #d7e4f6;overflow:hidden;position:relative">
           <img src="assets/hmc-logo.png" alt="Hajj Medical Center Naccache" style="position:absolute;width:176px;height:auto;left:-27px;top:-34px;display:block">
@@ -49,29 +109,40 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
           <div style="font-size:10.5px;font-weight:600;letter-spacing:.05em;color:#5c6a82;margin-top:5px">Hajj Medical Center · Naccache</div>
         </div>
       </div>
-      <nav style="display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600;margin-left:6px">
+      <nav class="hmc-nav" style="display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600;margin-left:6px">
         <span onClick="{{ goServices }}" style="cursor:pointer;padding:6px 0;border-bottom:2px solid {{ ubServices }};color:{{ cServices }}">Services</span>
         <span onClick="{{ goDoctors }}" style="cursor:pointer;padding:6px 0;border-bottom:2px solid {{ ubDoctors }};color:{{ cDoctors }}">Find a Doctor</span>
         <span onClick="{{ goAbout }}" style="cursor:pointer;padding:6px 0;border-bottom:2px solid {{ ubAbout }};color:{{ cAbout }}">About Us</span>
         <span onClick="{{ goLocations }}" style="cursor:pointer;padding:6px 0;border-bottom:2px solid {{ ubLocations }};color:{{ cLocations }}">Locations</span>
       </nav>
       <div style="flex:1"></div>
-      <div style="display:flex;align-items:center;gap:10px;flex:none">
+      <div class="hmc-header-cta" style="display:flex;align-items:center;gap:10px;flex:none">
         <button onClick="{{ goPortal }}" style="cursor:pointer;padding:11px 18px;border-radius:10px;border:1.5px solid #cfdcef;background:#fff;color:#17284f;font-weight:700;font-size:14px">Patient Portal</button>
         <button onClick="{{ goBook }}" style="cursor:pointer;padding:11px 20px;border-radius:10px;border:0;background:#3d8bea;color:#fff;font-weight:700;font-size:14px;box-shadow:0 6px 16px rgba(61,139,234,.32)" style-hover="background:#2f74cd">Book an Appointment</button>
       </div>
+      <button onClick="{{ toggleMenu }}" class="hmc-burger" aria-label="Open menu" style="cursor:pointer;flex:none;width:44px;height:44px;border-radius:11px;border:1.5px solid #cfdcef;background:#fff;color:#17284f;font-size:18px;line-height:1;align-items:center;justify-content:center">{{ menuIcon }}</button>
     </div>
+    <sc-if value="{{ menuOpen }}">
+      <div class="hmc-mobile-menu" style="border-top:1px solid #e3e9f2;background:#fff;padding:8px 18px 18px;flex-direction:column;gap:2px">
+        <span onClick="{{ goServices }}" style="cursor:pointer;padding:14px 2px;font-weight:700;font-size:16px;color:{{ cServices }};border-bottom:1px solid #eef2f8">Services</span>
+        <span onClick="{{ goDoctors }}" style="cursor:pointer;padding:14px 2px;font-weight:700;font-size:16px;color:{{ cDoctors }};border-bottom:1px solid #eef2f8">Find a Doctor</span>
+        <span onClick="{{ goAbout }}" style="cursor:pointer;padding:14px 2px;font-weight:700;font-size:16px;color:{{ cAbout }};border-bottom:1px solid #eef2f8">About Us</span>
+        <span onClick="{{ goLocations }}" style="cursor:pointer;padding:14px 2px;font-weight:700;font-size:16px;color:{{ cLocations }};border-bottom:1px solid #eef2f8">Locations</span>
+        <button onClick="{{ goBook }}" style="margin-top:16px;cursor:pointer;padding:14px;border-radius:11px;border:0;background:#3d8bea;color:#fff;font-weight:700;font-size:15px">Book an Appointment</button>
+        <button onClick="{{ goPortal }}" style="margin-top:8px;cursor:pointer;padding:14px;border-radius:11px;border:1.5px solid #cfdcef;background:#fff;color:#17284f;font-weight:700;font-size:15px">Patient Portal</button>
+      </div>
+    </sc-if>
   </header>
 
   <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
   <main>
     <section style="background:linear-gradient(180deg,#eef4fd 0%,#f7f9fc 100%);border-bottom:1px solid #e3e9f2">
-      <div style="max-width:1240px;margin:0 auto;padding:64px 28px 56px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center">
+      <div class="hmc-hero hmc-sec" style="max-width:1240px;margin:0 auto;padding:64px 28px 56px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center">
         <div style="animation:rise .5s ease both">
           <span style="display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border-radius:20px;background:#fff;border:1px solid #d7e4f6;font-size:12.5px;font-weight:700;color:#2f74cd;letter-spacing:.04em;text-transform:uppercase">Medical &amp; Dental Clinics · Naccache</span>
-          <h1 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:56px;line-height:1.06;letter-spacing:-.02em;color:#17284f;margin:22px 0 18px;text-wrap:balance">Nine clinics, one ground floor, one appointment.</h1>
+          <h1 class="hmc-h1 hmc-hero-h1" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:56px;line-height:1.06;letter-spacing:-.02em;color:#17284f;margin:22px 0 18px;text-wrap:balance">Nine clinics, one floor.</h1>
           <p style="font-size:18px;line-height:1.62;color:#5c6a82;margin:0 0 30px;max-width:520px;text-wrap:pretty">Hajj Medical Center brings medicine and dentistry together under Dr. Marcel Hajj, M.D. and Dr. Gregory Hage — from allergy, nutrition and cardiology to implants, panoramic imaging and physiotherapy.</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div class="hmc-hero-cta" style="display:flex;gap:12px;flex-wrap:wrap">
             <button onClick="{{ goBook }}" style="cursor:pointer;padding:15px 26px;border-radius:12px;border:0;background:#3d8bea;color:#fff;font-weight:700;font-size:15.5px;box-shadow:0 10px 24px rgba(61,139,234,.3)">Book an appointment</button>
             <button onClick="{{ goDoctors }}" style="cursor:pointer;padding:15px 26px;border-radius:12px;border:1.5px solid #cfdcef;background:#fff;color:#17284f;font-weight:700;font-size:15.5px">Find a provider</button>
           </div>
@@ -82,10 +153,10 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:16px">
-          <div style="height:290px;background:repeating-linear-gradient(135deg,#e2ecfa 0 10px,#eff5fd 10px 20px);border:1px solid #d5e2f2;border-radius:18px;display:flex;align-items:center;justify-content:center;color:#7c8aa3;font:500 11px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;text-align:center">clinic reception / waiting room photo<br>1200 × 800</div>
+          <div class="hmc-media" style="height:290px;background:repeating-linear-gradient(135deg,#e2ecfa 0 10px,#eff5fd 10px 20px);border:1px solid #d5e2f2;border-radius:18px;display:flex;align-items:center;justify-content:center;color:#7c8aa3;font:500 11px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;text-align:center">clinic reception / waiting room photo<br>1200 × 800</div>
           <div style="background:#fff;border:1px solid #e3e9f2;border-radius:18px;padding:20px;box-shadow:0 12px 30px rgba(23,40,79,.07)">
             <div style="font-family:'Outfit',sans-serif;font-weight:600;font-size:16px;color:#17284f;margin-bottom:14px">Quick appointment request</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div class="hmc-2" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
               <select style="padding:11px 12px;border:1px solid #dbe4f0;border-radius:10px;font-size:13.5px;color:#1b2333;background:#fbfcfe"><option>Clinic — Dental</option><option>Clinic — Allergy</option><option>Clinic — Diet &amp; Nutrition</option><option>Clinic — Cardiology</option></select>
               <select style="padding:11px 12px;border:1px solid #dbe4f0;border-radius:10px;font-size:13.5px;color:#1b2333;background:#fbfcfe"><option>Any provider</option><option>Dr. Marcel Hajj, M.D.</option><option>Dr. Gregory Hage</option></select>
               <input type="date" style="padding:11px 12px;border:1px solid #dbe4f0;border-radius:10px;font-size:13.5px;color:#1b2333;background:#fbfcfe">
@@ -97,15 +168,15 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
       </div>
     </section>
 
-    <section style="max-width:1240px;margin:0 auto;padding:56px 28px 8px">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px">
+    <section class="hmc-sec" style="max-width:1240px;margin:0 auto;padding:56px 28px 8px">
+      <div class="hmc-sec-head" style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px">
         <div>
-          <h2 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.015em;color:#17284f;margin:0 0 8px">Services &amp; specialties</h2>
+          <h2 class="hmc-h2" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.015em;color:#17284f;margin:0 0 8px">Services &amp; specialties</h2>
           <p style="margin:0;color:#5c6a82;font-size:15.5px">Every clinic has its own page with treatments, preparation notes and pricing on request.</p>
         </div>
         <span onClick="{{ goServices }}" style="cursor:pointer;font-weight:700;color:#2f74cd;font-size:14.5px;flex:none">All services →</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div class="hmc-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
         <sc-for list="{{ clinics }}" as="c" hint-placeholder-count="9">
           <div onClick="{{ c.open }}" style="cursor:pointer;background:#fff;border:1px solid #e3e9f2;border-radius:16px;padding:22px 20px;display:flex;flex-direction:column;gap:9px" style-hover="border-color:#9dc2f2;box-shadow:0 10px 26px rgba(23,40,79,.08)">
             <div style="width:38px;height:38px;border-radius:10px;background:#eaf2fd;border:1px solid #d7e4f6;display:flex;align-items:center;justify-content:center;font:700 13px 'Outfit',sans-serif;color:#2f74cd">{{ c.code }}</div>
@@ -116,14 +187,14 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
       </div>
     </section>
 
-    <section style="max-width:1240px;margin:0 auto;padding:56px 28px">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px">
-        <h2 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.015em;color:#17284f;margin:0">Meet the team</h2>
+    <section class="hmc-sec" style="max-width:1240px;margin:0 auto;padding:56px 28px">
+      <div class="hmc-sec-head" style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px">
+        <h2 class="hmc-h2" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.015em;color:#17284f;margin:0">Meet the team</h2>
         <span onClick="{{ goDoctors }}" style="cursor:pointer;font-weight:700;color:#2f74cd;font-size:14.5px;flex:none">Full provider directory →</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
-        <div style="background:#fff;border:1px solid #e3e9f2;border-radius:18px;padding:24px;display:flex;gap:20px">
-          <div style="width:112px;height:132px;flex:none;background:repeating-linear-gradient(135deg,#e2ecfa 0 8px,#eff5fd 8px 16px);border:1px solid #d5e2f2;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 9px ui-monospace,Menlo,monospace;text-align:center;letter-spacing:.08em">PORTRAIT</div>
+      <div class="hmc-split" style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
+        <div class="hmc-team-card" style="background:#fff;border:1px solid #e3e9f2;border-radius:18px;padding:24px;display:flex;gap:20px">
+          <div class="hmc-portrait" style="width:112px;height:132px;flex:none;background:repeating-linear-gradient(135deg,#e2ecfa 0 8px,#eff5fd 8px 16px);border:1px solid #d5e2f2;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 9px ui-monospace,Menlo,monospace;text-align:center;letter-spacing:.08em">PORTRAIT</div>
           <div>
             <div style="font-family:'Outfit',sans-serif;font-weight:600;font-size:21px;color:#17284f">Dr. Marcel Hajj, M.D.</div>
             <div style="font-size:13.5px;font-weight:700;color:#2f74cd;margin:4px 0 10px">Founder · Internal medicine, allergy &amp; clinical nutrition</div>
@@ -135,8 +206,8 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
             </div>
           </div>
         </div>
-        <div style="background:#fff;border:1px solid #e3e9f2;border-radius:18px;padding:24px;display:flex;gap:20px">
-          <div style="width:112px;height:132px;flex:none;background:repeating-linear-gradient(135deg,#e2ecfa 0 8px,#eff5fd 8px 16px);border:1px solid #d5e2f2;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 9px ui-monospace,Menlo,monospace;text-align:center;letter-spacing:.08em">PORTRAIT</div>
+        <div class="hmc-team-card" style="background:#fff;border:1px solid #e3e9f2;border-radius:18px;padding:24px;display:flex;gap:20px">
+          <div class="hmc-portrait" style="width:112px;height:132px;flex:none;background:repeating-linear-gradient(135deg,#e2ecfa 0 8px,#eff5fd 8px 16px);border:1px solid #d5e2f2;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 9px ui-monospace,Menlo,monospace;text-align:center;letter-spacing:.08em">PORTRAIT</div>
           <div>
             <div style="font-family:'Outfit',sans-serif;font-weight:600;font-size:21px;color:#17284f">Dr. Gregory Hage</div>
             <div style="font-size:13.5px;font-weight:700;color:#2f74cd;margin:4px 0 10px">Dental surgery · Implants &amp; cosmetic dentistry</div>
@@ -152,24 +223,24 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
     </section>
 
     <section style="background:#17284f;color:#fff">
-      <div style="max-width:1240px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+      <div class="hmc-split hmc-sec" style="max-width:1240px;margin:0 auto;padding:56px 28px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
         <div>
-          <h2 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:32px;letter-spacing:-.015em;margin:0 0 14px">Find us on the ground floor</h2>
+          <h2 class="hmc-h2" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:32px;letter-spacing:-.015em;margin:0 0 14px">Find us on the ground floor</h2>
           <p style="margin:0 0 22px;color:#c3d3ee;font-size:15.5px;line-height:1.65">Green Zone A, Building 71, Ground Floor — Naccache, Lebanon. Step-free entrance, parking in front of the building.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;font-size:14px">
+          <div class="hmc-2" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;font-size:14px">
             <div><div style="color:#8fa6cd;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">Phone &amp; WhatsApp</div>+961 4 520 065</div>
             <div><div style="color:#8fa6cd;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px">Opening hours</div>Mon–Fri 09:00–18:00<br>Sat 09:00–14:00 <span style="color:#8fa6cd">(to confirm)</span></div>
           </div>
           <button onClick="{{ goLocations }}" style="margin-top:26px;cursor:pointer;padding:13px 22px;border-radius:11px;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-weight:700;font-size:14.5px">Directions &amp; departments</button>
         </div>
-        <div style="height:300px;background:repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 10px,rgba(255,255,255,.03) 10px 20px);border:1px solid rgba(255,255,255,.18);border-radius:18px;display:flex;align-items:center;justify-content:center;color:#a9c0e2;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;text-align:center">embedded google map<br>Naccache · Green Zone A</div>
+        <div class="hmc-media" style="height:300px;background:repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 10px,rgba(255,255,255,.03) 10px 20px);border:1px solid rgba(255,255,255,.18);border-radius:18px;display:flex;align-items:center;justify-content:center;color:#a9c0e2;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;text-align:center">embedded google map<br>Naccache · Green Zone A</div>
       </div>
     </section>
 
-    <section style="max-width:1240px;margin:0 auto;padding:56px 28px">
-      <h2 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.015em;color:#17284f;margin:0 0 8px">Research from the center</h2>
+    <section class="hmc-sec" style="max-width:1240px;margin:0 auto;padding:56px 28px">
+      <h2 class="hmc-h2" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.015em;color:#17284f;margin:0 0 8px">Research from the center</h2>
       <p style="margin:0 0 24px;color:#5c6a82;font-size:15.5px">Peer-reviewed work published by our clinicians.</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div class="hmc-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
         <sc-for list="{{ articles }}" as="a" hint-placeholder-count="3">
           <div style="background:#fff;border:1px solid #e3e9f2;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px">
             <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2f74cd">{{ a.journal }}</div>
@@ -183,11 +254,11 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
   </sc-if>
 
   <sc-if value="{{ isDoctors }}">
-  <main style="max-width:1240px;margin:0 auto;padding:44px 28px 60px">
-    <h1 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:40px;letter-spacing:-.02em;color:#17284f;margin:0 0 8px">Find a doctor</h1>
+  <main class="hmc-sec" style="max-width:1240px;margin:0 auto;padding:44px 28px 60px">
+    <h1 class="hmc-h1" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:40px;letter-spacing:-.02em;color:#17284f;margin:0 0 8px">Find a doctor</h1>
     <p style="margin:0 0 30px;color:#5c6a82;font-size:16px">Search our providers by specialty, gender, language and payment method.</p>
-    <div style="display:grid;grid-template-columns:282px 1fr;gap:26px;align-items:start">
-      <aside style="background:#fff;border:1px solid #e3e9f2;border-radius:18px;padding:22px;position:sticky;top:104px">
+    <div class="hmc-doctors-layout" style="display:grid;grid-template-columns:282px 1fr;gap:26px;align-items:start">
+      <aside class="hmc-filters" style="background:#fff;border:1px solid #e3e9f2;border-radius:18px;padding:22px;position:sticky;top:104px">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
           <div style="font-family:'Outfit',sans-serif;font-weight:600;font-size:16px;color:#17284f">Filters</div>
           <span onClick="{{ resetFilters }}" style="cursor:pointer;font-size:12.5px;font-weight:700;color:#2f74cd">Reset</span>
@@ -225,8 +296,8 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
         </div>
         <div style="display:flex;flex-direction:column;gap:14px">
           <sc-for list="{{ filteredDoctors }}" as="d" hint-placeholder-count="5">
-            <div style="background:#fff;border:1px solid #e3e9f2;border-radius:16px;padding:20px;display:grid;grid-template-columns:92px 1fr 190px;gap:20px;align-items:center">
-              <div style="width:92px;height:104px;background:repeating-linear-gradient(135deg,#e2ecfa 0 8px,#eff5fd 8px 16px);border:1px solid #d5e2f2;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 9px ui-monospace,Menlo,monospace;letter-spacing:.08em">PHOTO</div>
+            <div class="hmc-doc-card" style="background:#fff;border:1px solid #e3e9f2;border-radius:16px;padding:20px;display:grid;grid-template-columns:92px 1fr 190px;gap:20px;align-items:center">
+              <div class="hmc-doc-photo" style="width:92px;height:104px;background:repeating-linear-gradient(135deg,#e2ecfa 0 8px,#eff5fd 8px 16px);border:1px solid #d5e2f2;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 9px ui-monospace,Menlo,monospace;letter-spacing:.08em">PHOTO</div>
               <div>
                 <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">
                   <span style="font-family:'Outfit',sans-serif;font-weight:600;font-size:19px;color:#17284f">{{ d.name }}</span>
@@ -239,7 +310,7 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
                   <span style="font-size:11.5px;font-weight:600;padding:4px 9px;border-radius:6px;background:#f2f6fc;color:#5c6a82">Naccache</span>
                 </div>
               </div>
-              <div style="display:flex;flex-direction:column;gap:8px">
+              <div class="hmc-doc-actions" style="display:flex;flex-direction:column;gap:8px">
                 <div style="font-size:12px;color:#7c8aa3">Next available</div>
                 <div style="font-family:'Outfit',sans-serif;font-weight:600;font-size:15px;color:#17284f">{{ d.next }}</div>
                 <button onClick="{{ goBook }}" style="cursor:pointer;padding:11px 14px;border-radius:10px;border:0;background:#3d8bea;color:#fff;font-weight:700;font-size:13.5px">Book</button>
@@ -257,10 +328,10 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
   </sc-if>
 
   <sc-if value="{{ isServices }}">
-  <main style="max-width:1240px;margin:0 auto;padding:44px 28px 60px">
-    <h1 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:40px;letter-spacing:-.02em;color:#17284f;margin:0 0 8px">Services &amp; specialties</h1>
+  <main class="hmc-sec" style="max-width:1240px;margin:0 auto;padding:44px 28px 60px">
+    <h1 class="hmc-h1" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:40px;letter-spacing:-.02em;color:#17284f;margin:0 0 8px">Services &amp; specialties</h1>
     <p style="margin:0 0 30px;color:#5c6a82;font-size:16px;max-width:640px">Medical and dental care in one building. Select a clinic to see treatments, what to bring and how long a visit takes.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
+    <div class="hmc-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px">
       <sc-for list="{{ clinics }}" as="c" hint-placeholder-count="9">
         <div onClick="{{ c.open }}" style="cursor:pointer;background:#fff;border:1px solid #e3e9f2;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px" style-hover="border-color:#9dc2f2;box-shadow:0 10px 26px rgba(23,40,79,.08)">
           <div style="width:38px;height:38px;border-radius:10px;background:#eaf2fd;border:1px solid #d7e4f6;display:flex;align-items:center;justify-content:center;font:700 13px 'Outfit',sans-serif;color:#2f74cd">{{ c.code }}</div>
@@ -273,10 +344,10 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
 
     <div style="background:#fff;border:1px solid #e3e9f2;border-radius:22px;overflow:hidden">
       <div style="padding:14px 24px;background:#f2f6fc;border-bottom:1px solid #e3e9f2;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7c8aa3">Example clinic landing page</div>
-      <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:40px;padding:36px 40px 40px">
+      <div class="hmc-split hmc-example-body" style="display:grid;grid-template-columns:1.1fr .9fr;gap:40px;padding:36px 40px 40px">
         <div>
           <span style="display:inline-block;padding:5px 11px;border-radius:20px;background:#eaf2fd;color:#2f74cd;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase">Dental clinics</span>
-          <h2 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.015em;color:#17284f;margin:16px 0 14px">Two dental chairs, panoramic imaging in the same visit.</h2>
+          <h2 class="hmc-h2" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.015em;color:#17284f;margin:16px 0 14px">Two dental chairs, panoramic imaging in the same visit.</h2>
           <p style="margin:0 0 24px;font-size:15.5px;line-height:1.65;color:#5c6a82">General and cosmetic dentistry led by Dr. Gregory Hage. Diagnostic imaging is done on site, so treatment planning usually happens the same day.</p>
           <div style="display:flex;flex-direction:column;gap:1px;background:#eef2f8;border:1px solid #e3e9f2;border-radius:14px;overflow:hidden">
             <sc-for list="{{ dentalTreatments }}" as="t" hint-placeholder-count="5">
@@ -291,7 +362,7 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:16px">
-          <div style="height:240px;background:repeating-linear-gradient(135deg,#e2ecfa 0 10px,#eff5fd 10px 20px);border:1px solid #d5e2f2;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;text-align:center">dental suite photo<br>1000 × 700</div>
+          <div class="hmc-media" style="height:240px;background:repeating-linear-gradient(135deg,#e2ecfa 0 10px,#eff5fd 10px 20px);border:1px solid #d5e2f2;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;text-align:center">dental suite photo<br>1000 × 700</div>
           <div style="background:#f7f9fc;border:1px solid #e3e9f2;border-radius:16px;padding:20px">
             <div style="font-family:'Outfit',sans-serif;font-weight:600;font-size:16px;color:#17284f;margin-bottom:12px">Before your visit</div>
             <ul style="margin:0;padding-left:18px;font-size:13.5px;line-height:1.75;color:#5c6a82">
@@ -310,18 +381,18 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
   <sc-if value="{{ isAbout }}">
   <main>
     <section style="background:linear-gradient(180deg,#eef4fd,#f7f9fc);border-bottom:1px solid #e3e9f2">
-      <div style="max-width:1240px;margin:0 auto;padding:56px 28px">
-        <h1 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:44px;letter-spacing:-.02em;color:#17284f;margin:0 0 16px;max-width:760px;text-wrap:balance">A neighbourhood clinic that grew into nine specialties.</h1>
+      <div class="hmc-sec" style="max-width:1240px;margin:0 auto;padding:56px 28px">
+        <h1 class="hmc-h1" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:44px;letter-spacing:-.02em;color:#17284f;margin:0 0 16px;max-width:760px;text-wrap:balance">A neighbourhood clinic that grew into nine specialties.</h1>
         <p style="margin:0;max-width:700px;font-size:17px;line-height:1.65;color:#5c6a82">Hajj Medical Center has served Naccache and the surrounding Metn area since 2001. What began as Dr. Marcel Hajj's private practice now houses medical and dental clinics side by side on the ground floor of Green Zone A, Building 71.</p>
       </div>
     </section>
-    <section style="max-width:1240px;margin:0 auto;padding:52px 28px">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start">
+    <section class="hmc-sec" style="max-width:1240px;margin:0 auto;padding:52px 28px">
+      <div class="hmc-split" style="display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start">
         <div>
-          <h2 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:28px;color:#17284f;margin:0 0 16px">How we work</h2>
+          <h2 class="hmc-h2" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:28px;color:#17284f;margin:0 0 16px">How we work</h2>
           <p style="margin:0 0 16px;font-size:15.5px;line-height:1.7;color:#5c6a82">Patients are seen by the specialist they need without being sent across town. Allergy, nutrition, cardiology, gynecology, pediatrics, physiotherapy, psychology, esthetics and dentistry share one reception, one file and one phone number.</p>
           <p style="margin:0 0 24px;font-size:15.5px;line-height:1.7;color:#5c6a82">The center also runs a WhatsApp secretary line and an AI assistant for routine questions, so appointments and results do not depend on office hours.</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="hmc-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
             <sc-for list="{{ values }}" as="v" hint-placeholder-count="4">
               <div style="background:#fff;border:1px solid #e3e9f2;border-radius:14px;padding:18px">
                 <div style="font-family:'Outfit',sans-serif;font-weight:600;font-size:15.5px;color:#17284f;margin-bottom:5px">{{ v.title }}</div>
@@ -331,7 +402,7 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:18px">
-          <div style="height:260px;background:repeating-linear-gradient(135deg,#e2ecfa 0 10px,#eff5fd 10px 20px);border:1px solid #d5e2f2;border-radius:18px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;text-align:center">team photo outside the building<br>1200 × 800</div>
+          <div class="hmc-media" style="height:260px;background:repeating-linear-gradient(135deg,#e2ecfa 0 10px,#eff5fd 10px 20px);border:1px solid #d5e2f2;border-radius:18px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;text-align:center">team photo outside the building<br>1200 × 800</div>
           <div style="background:#fff;border:1px solid #e3e9f2;border-radius:18px;padding:24px">
             <div style="font-family:'Outfit',sans-serif;font-weight:600;font-size:17px;color:#17284f;margin-bottom:16px">Milestones</div>
             <div style="display:flex;flex-direction:column;gap:0">
@@ -350,11 +421,11 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
   </sc-if>
 
   <sc-if value="{{ isLocations }}">
-  <main style="max-width:1240px;margin:0 auto;padding:44px 28px 60px">
-    <h1 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:40px;letter-spacing:-.02em;color:#17284f;margin:0 0 8px">Location &amp; departments</h1>
+  <main class="hmc-sec" style="max-width:1240px;margin:0 auto;padding:44px 28px 60px">
+    <h1 class="hmc-h1" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:40px;letter-spacing:-.02em;color:#17284f;margin:0 0 8px">Location &amp; departments</h1>
     <p style="margin:0 0 30px;color:#5c6a82;font-size:16px">One facility. All clinics are on the ground floor with step-free access.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:34px">
-      <div style="background:#fff;border:1px solid #e3e9f2;border-radius:20px;padding:28px">
+    <div class="hmc-split" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:34px">
+      <div class="hmc-card" style="background:#fff;border:1px solid #e3e9f2;border-radius:20px;padding:28px">
         <div style="font-family:'Outfit',sans-serif;font-weight:600;font-size:24px;color:#17284f;margin-bottom:6px">HMC Naccache</div>
         <div style="font-size:15px;color:#5c6a82;line-height:1.6;margin-bottom:22px">Green Zone A, Building 71, Ground Floor<br>Naccache, Metn, Lebanon</div>
         <div style="display:flex;flex-direction:column;gap:1px;background:#eef2f8;border:1px solid #e3e9f2;border-radius:14px;overflow:hidden;margin-bottom:20px">
@@ -370,10 +441,10 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
           <a href="https://wa.me/9614520065" style="padding:12px 18px;border-radius:11px;border:1.5px solid #cfdcef;color:#17284f;font-weight:700;font-size:14px;text-decoration:none">WhatsApp</a>
         </div>
       </div>
-      <div style="background:repeating-linear-gradient(135deg,#e2ecfa 0 10px,#eff5fd 10px 20px);border:1px solid #d5e2f2;border-radius:20px;min-height:400px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;text-align:center">interactive map embed<br>pin: green zone a, bldg 71</div>
+      <div class="hmc-media" style="background:repeating-linear-gradient(135deg,#e2ecfa 0 10px,#eff5fd 10px 20px);border:1px solid #d5e2f2;border-radius:20px;min-height:400px;display:flex;align-items:center;justify-content:center;color:#8b98ad;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;text-align:center">interactive map embed<br>pin: green zone a, bldg 71</div>
     </div>
-    <h2 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:26px;color:#17284f;margin:0 0 16px">Departments in this building</h2>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+    <h2 class="hmc-h2" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:26px;color:#17284f;margin:0 0 16px">Departments in this building</h2>
+    <div class="hmc-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
       <sc-for list="{{ clinics }}" as="c" hint-placeholder-count="9">
         <div style="background:#fff;border:1px solid #e3e9f2;border-radius:14px;padding:18px;display:flex;align-items:center;gap:14px">
           <div style="width:34px;height:34px;flex:none;border-radius:9px;background:#eaf2fd;border:1px solid #d7e4f6;display:flex;align-items:center;justify-content:center;font:700 12px 'Outfit',sans-serif;color:#2f74cd">{{ c.code }}</div>
@@ -388,10 +459,10 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
   </sc-if>
 
   <sc-if value="{{ isBook }}">
-  <main style="max-width:1000px;margin:0 auto;padding:44px 28px 70px">
-    <h1 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:40px;letter-spacing:-.02em;color:#17284f;margin:0 0 8px">Request an appointment</h1>
+  <main class="hmc-sec" style="max-width:1000px;margin:0 auto;padding:44px 28px 70px">
+    <h1 class="hmc-h1" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:40px;letter-spacing:-.02em;color:#17284f;margin:0 0 8px">Request an appointment</h1>
     <p style="margin:0 0 28px;color:#5c6a82;font-size:16px">The secretary confirms every request by phone or WhatsApp, usually within the same working day.</p>
-    <div style="display:flex;gap:10px;margin-bottom:24px">
+    <div class="hmc-steps" style="display:flex;gap:10px;margin-bottom:24px">
       <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
         <div style="flex:1;padding:14px 16px;border-radius:14px;background:{{ s.bg }};border:1px solid {{ s.bd }}">
           <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:{{ s.num }}">Step {{ s.n }}</div>
@@ -399,8 +470,8 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
         </div>
       </sc-for>
     </div>
-    <div style="background:#fff;border:1px solid #e3e9f2;border-radius:22px;padding:32px">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div class="hmc-card" style="background:#fff;border:1px solid #e3e9f2;border-radius:22px;padding:32px">
+      <div class="hmc-2" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
         <label style="display:block"><span style="display:block;font-size:12.5px;font-weight:700;color:#17284f;margin-bottom:7px">Clinic</span><select style="width:100%;padding:12px;border:1px solid #dbe4f0;border-radius:11px;font-size:14px;background:#fbfcfe"><option>Dental Clinics</option><option>Allergy Clinic</option><option>Diet &amp; Nutrition Clinic</option><option>Esthetic &amp; Slimming</option><option>Physiotherapy Center</option><option>Clinical Psychology</option><option>Gynecology</option><option>Cardiology</option><option>Pediatrics</option></select></label>
         <label style="display:block"><span style="display:block;font-size:12.5px;font-weight:700;color:#17284f;margin-bottom:7px">Provider</span><select style="width:100%;padding:12px;border:1px solid #dbe4f0;border-radius:11px;font-size:14px;background:#fbfcfe"><option>First available</option><option>Dr. Marcel Hajj, M.D.</option><option>Dr. Gregory Hage</option></select></label>
         <label style="display:block"><span style="display:block;font-size:12.5px;font-weight:700;color:#17284f;margin-bottom:7px">Full name</span><input placeholder="As on your ID" style="width:100%;padding:12px;border:1px solid #dbe4f0;border-radius:11px;font-size:14px;background:#fbfcfe"></label>
@@ -426,10 +497,10 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
   </sc-if>
 
   <sc-if value="{{ isPortal }}">
-  <main style="display:grid;grid-template-columns:1fr 1fr;min-height:620px">
-    <div style="display:flex;align-items:center;justify-content:center;padding:60px 28px">
+  <main class="hmc-portal" style="display:grid;grid-template-columns:1fr 1fr;min-height:620px">
+    <div class="hmc-portal-left" style="display:flex;align-items:center;justify-content:center;padding:60px 28px">
       <div style="width:100%;max-width:400px">
-        <h1 style="font-family:'Outfit',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.02em;color:#17284f;margin:0 0 8px">Patient portal</h1>
+        <h1 class="hmc-h1" style="font-family:'Outfit',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.02em;color:#17284f;margin:0 0 8px">Patient portal</h1>
         <p style="margin:0 0 26px;color:#5c6a82;font-size:15px;line-height:1.6">Test results, prescriptions, past visits and secure messages with your clinician.</p>
         <label style="display:block;margin-bottom:14px"><span style="display:block;font-size:12.5px;font-weight:700;color:#17284f;margin-bottom:7px">Mobile number or email</span><input placeholder="+961 …" style="width:100%;padding:13px;border:1px solid #dbe4f0;border-radius:11px;font-size:14px;background:#fbfcfe"></label>
         <label style="display:block;margin-bottom:8px"><span style="display:block;font-size:12.5px;font-weight:700;color:#17284f;margin-bottom:7px">Password</span><input type="password" placeholder="••••••••" style="width:100%;padding:13px;border:1px solid #dbe4f0;border-radius:11px;font-size:14px;background:#fbfcfe"></label>
@@ -443,7 +514,7 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
         <div style="font-size:13px;color:#5c6a82;margin-top:22px;line-height:1.6">First visit? Ask the secretary to activate your portal, or <span onClick="{{ goBook }}" style="cursor:pointer;color:#2f74cd;font-weight:700">request an appointment</span>.</div>
       </div>
     </div>
-    <div style="background:#17284f;padding:60px 48px;display:flex;flex-direction:column;justify-content:center;gap:18px">
+    <div class="hmc-portal-side" style="background:#17284f;padding:60px 48px;display:flex;flex-direction:column;justify-content:center;gap:18px">
       <div style="color:#8fa6cd;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">Inside the portal</div>
       <sc-for list="{{ portalItems }}" as="p" hint-placeholder-count="4">
         <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:20px">
@@ -457,9 +528,9 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
   </sc-if>
 
   <footer style="background:#0f1c39;color:#c3d3ee;margin-top:0">
-    <div style="max-width:1240px;margin:0 auto;padding:52px 28px 28px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px">
+    <div class="hmc-footer-grid hmc-sec hmc-footpad" style="max-width:1240px;margin:0 auto;padding:52px 28px 28px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px">
       <div>
-        <img src="assets/hmc-logo.png" alt="Hajj Medical Center Naccache — Medical &amp; Dental Clinics" style="width:236px;height:auto;border-radius:14px;display:block;margin-bottom:18px">
+        <img class="hmc-footer-logo" src="assets/hmc-logo.png" alt="Hajj Medical Center Naccache — Medical &amp; Dental Clinics" style="width:236px;height:auto;border-radius:14px;display:block;margin-bottom:18px">
         <div style="font-size:13.5px;line-height:1.7">Green Zone A, Building 71, Ground Floor<br>Naccache, Lebanon<br><a href="tel:+9614520065" style="color:#fff;font-weight:600">+961 4 520 065</a></div>
         <div style="display:flex;gap:8px;margin-top:16px">
           <span style="padding:7px 12px;border-radius:9px;background:rgba(255,255,255,.09);font-size:12.5px;font-weight:600">Facebook</span>
@@ -497,7 +568,7 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
       </div>
     </div>
     <div style="border-top:1px solid rgba(255,255,255,.1)">
-      <div style="max-width:1240px;margin:0 auto;padding:18px 28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12.5px;color:#8fa6cd">
+      <div class="hmc-sec hmc-footpad" style="max-width:1240px;margin:0 auto;padding:18px 28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12.5px;color:#8fa6cd">
         <span>© 2026 Hajj Medical Center — Medical &amp; Dental Clinics, Naccache.</span>
         <span>Front-end mockup · content pending clinic review</span>
       </div>
@@ -507,10 +578,10 @@ input,select,textarea,button{font-family:'Manrope',system-ui,sans-serif}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;services&quot;,&quot;doctors&quot;,&quot;about&quot;,&quot;locations&quot;,&quot;book&quot;,&quot;portal&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#3d8bea&quot;,&quot;#2f74cd&quot;,&quot;#17284f&quot;,&quot;#1f8a5b&quot;],&quot;default&quot;:&quot;#3d8bea&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
-  state = { page: null, q: "", fSpec: "All specialties", fLang: "Any language", fGender: "Any", slot: "10:30" };
+  state = { page: null, menu: false, q: "", fSpec: "All specialties", fLang: "Any language", fGender: "Any", slot: "10:30" };
 
   get page() { return this.state.page || this.props.startPage || "home"; }
-  go(p) { this.setState({ page: p }); if (typeof window !== "undefined") window.scrollTo(0, 0); }
+  go(p) { this.setState({ page: p, menu: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); }
 
   renderVals() {
     const accent = this.props.accent || "#3d8bea";
@@ -569,6 +640,9 @@ class Component extends DCLogic {
       isAbout: page === "about", isLocations: page === "locations", isBook: page === "book", isPortal: page === "portal",
       goHome: () => this.go("home"), goDoctors: () => this.go("doctors"), goServices: () => this.go("services"),
       goAbout: () => this.go("about"), goLocations: () => this.go("locations"), goBook: () => this.go("book"), goPortal: () => this.go("portal"),
+      menuOpen: this.state.menu,
+      toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      menuIcon: this.state.menu ? "\u2715" : "\u2630",
       ubServices: n.services.ub, cServices: n.services.c,
       ubDoctors: n.doctors.ub, cDoctors: n.doctors.c,
       ubAbout: n.about.ub, cAbout: n.about.c,
